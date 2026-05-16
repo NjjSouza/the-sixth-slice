@@ -1,5 +1,7 @@
 function scr_puzzle_validate() {
 
+    if (!global.puzzle_ativo) exit;
+
     var resposta_digitada = real(global.puzzle_resposta_jogador);
     var diferenca = abs(resposta_digitada - global.puzzle_resposta_correta);
 
@@ -29,7 +31,6 @@ function scr_puzzle_validate() {
         global.puzzle_resultado = "errado";
         obj_hud.energia  -= 15;
         obj_hud.oxigenio -= 10;
-
         obj_hud.energia  = max(obj_hud.energia,  0);
         obj_hud.oxigenio = max(obj_hud.oxigenio, 0);
     }

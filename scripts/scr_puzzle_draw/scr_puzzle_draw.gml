@@ -6,7 +6,7 @@ function scr_puzzle_draw() {
     if (global.puzzle_ativo) {
 
         draw_set_halign(fa_center);
-        draw_set_valign(fa_middle);
+        draw_set_valign(fa_center);
 
         // Nome da fase
         var nome_fase = "";

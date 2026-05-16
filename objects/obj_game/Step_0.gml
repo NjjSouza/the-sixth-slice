@@ -12,15 +12,6 @@ if (game_state == GAME_STATE.PLAYING)
     }
 }
 
-// DEBUG TEMPORÁRIO
-if (keyboard_check_pressed(vk_space))
-{
-    if (game_state == GAME_STATE.PUZZLE)
-    {
-        Puzzle_End();
-    }
-}
-
 // GAME OVER
 if (game_state == GAME_STATE.GAMEOVER)
 {

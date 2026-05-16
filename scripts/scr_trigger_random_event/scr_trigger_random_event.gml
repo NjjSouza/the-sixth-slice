@@ -17,7 +17,5 @@ function TriggerRandomEvent()
         break;
     }
 
-    show_debug_message("EVENT: " + string(current_event));
-
     ExecuteEvent(current_event);
 }
