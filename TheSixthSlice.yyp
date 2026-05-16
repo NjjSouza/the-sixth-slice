@@ -19,6 +19,8 @@
   },
   "name":"TheSixthSlice",
   "resources":[
+    {"id":{"name":"obj_alerta","path":"objects/obj_alerta/obj_alerta.yy",},},
+    {"id":{"name":"obj_fundo","path":"objects/obj_fundo/obj_fundo.yy",},},
     {"id":{"name":"obj_gameover","path":"objects/obj_gameover/obj_gameover.yy",},},
     {"id":{"name":"obj_hud","path":"objects/obj_hud/obj_hud.yy",},},
     {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},},
