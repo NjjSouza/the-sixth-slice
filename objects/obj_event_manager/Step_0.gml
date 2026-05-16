@@ -7,7 +7,6 @@ event_timer += delta_time / 1000000;
 
 if (event_timer >= event_cooldown)
 {
-    TriggerEvent();
-
+    TriggerRandomEvent();
     event_timer = 0;
 }

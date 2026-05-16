@@ -1,3 +1,2 @@
 event_timer = 0;
-
-event_cooldown = 10;
+event_cooldown = 8;
