@@ -46,6 +46,7 @@
     {"id":{"name":"scr_puzzle_validate","path":"scripts/scr_puzzle_validate/scr_puzzle_validate.yy",},},
     {"id":{"name":"scr_random_range_int","path":"scripts/scr_random_range_int/scr_random_range_int.yy",},},
     {"id":{"name":"scr_trigger_random_event","path":"scripts/scr_trigger_random_event/scr_trigger_random_event.yy",},},
+    {"id":{"name":"spr_player_dead","path":"sprites/spr_player_dead/spr_player_dead.yy",},},
     {"id":{"name":"spr_player_down","path":"sprites/spr_player_down/spr_player_down.yy",},},
     {"id":{"name":"spr_player_left","path":"sprites/spr_player_left/spr_player_left.yy",},},
     {"id":{"name":"spr_player_right","path":"sprites/spr_player_right/spr_player_right.yy",},},
