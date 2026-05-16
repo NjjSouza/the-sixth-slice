@@ -1,1 +1,1 @@
-scr_puzzle_draw();
+// vazio - draw movido para GUI

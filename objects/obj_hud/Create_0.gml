@@ -1,5 +1,5 @@
-
 depth = 10;
+
 
 // =====================
 // VALORES DA HUD
@@ -24,5 +24,5 @@ shake_alerta    = 0;
 // SCORE E TEMPO
 // =====================
 
-score          = 0;
+hud_score      = 0;
 tempo_segundos = 0;

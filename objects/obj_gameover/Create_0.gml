@@ -4,11 +4,9 @@
 
 shake_timer   = 0;
 
-
-
 // =====================
 // DADOS FINAIS
 // =====================
 
-score_final = 0;
-tempo_final = 0;
+score_final  = global.score_final;
+tempo_final  = global.tempo_final;

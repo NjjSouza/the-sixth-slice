@@ -50,7 +50,7 @@ if (global.puzzle_ativo) {
 
 if (global.puzzle_feedback_timer > 0) {
     global.puzzle_feedback_timer -= 1;
-    if (global.puzzle_feedback_timer == 0 and !global.puzzle_ativo) {
+    if (global.puzzle_feedback_timer == 0 && !global.puzzle_ativo) {
         Puzzle_End();
     }
 }

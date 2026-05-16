@@ -9,6 +9,8 @@ function scr_puzzle_init() {
     global.puzzle_fase = 1;
     global.puzzle_contador_na_fase = 0;
     global.puzzle_por_fase = 6;
+	global.score_final = 0;
+	global.tempo_final = 0;
 
     // ============================================================
     // DADOS DO PUZZLE ATUAL

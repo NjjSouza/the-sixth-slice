@@ -5,19 +5,6 @@
 
 draw_set_alpha(1);
 
-
-// =====================
-// FUNDO DAS CAIXAS
-// =====================
-
-
-// =====================
-// HUD BASE
-// =====================
-
-draw_set_alpha(1);
-
-
 // =====================
 // FUNDO DAS CAIXAS
 // =====================
@@ -83,19 +70,6 @@ draw_rectangle(300,660,980,695,true);
 
 
 // =====================
-// SCORE E TEMPO
-// =====================
-
-var mins     = floor(obj_game.game_time / 60);
-var secs     = floor(obj_game.game_time mod 60);
-var time_str = string(mins) + ":" + (secs < 10 ? "0" : "") + string(secs);
-
-draw_set_color(c_white);
-draw_text(1000, 40, "SCORE: " + string(obj_game.player_score));
-draw_text(1000, 75, "TEMPO: " + time_str);
-
-
-// =====================
 // TEXTOS BASE
 // =====================
 
@@ -113,7 +87,7 @@ var minutos  = tempo_segundos div 60;
 var segundos = tempo_segundos mod 60;
 var seg_str  = (segundos < 10 ? "0" : "") + string(segundos);
 
-draw_text(1000, 40, "SCORE: " + string(score));
+draw_text(1000, 40, "SCORE: " + string(hud_score));
 draw_text(1000, 75, "TEMPO: " + string(minutos) + ":" + seg_str);
 
 
@@ -216,6 +190,16 @@ else
 
 draw_rectangle(40,140, 40 + ((180 * integridade) / 100), 152, false);
 
+// DEBUG TEMPORÁRIO — remover depois
+var state_str = "";
+switch (obj_game.game_state)
+{
+    case GAME_STATE.PLAYING:  state_str = "PLAYING";  break;
+    case GAME_STATE.PUZZLE:   state_str = "PUZZLE";   break;
+    case GAME_STATE.GAMEOVER: state_str = "GAMEOVER"; break;
+    case GAME_STATE.MENU:     state_str = "MENU";     break;
+}
+draw_set_color(c_lime);
 
 // =====================
 // RESET FINAL

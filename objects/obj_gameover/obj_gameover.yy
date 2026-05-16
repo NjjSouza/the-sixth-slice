@@ -10,8 +10,8 @@
   "name":"obj_gameover",
   "overriddenProperties":[],
   "parent":{
-    "name":"TheSixthSlice",
-    "path":"TheSixthSlice.yyp",
+    "name":"Objetos",
+    "path":"folders/Objetos.yy",
   },
   "parentObjectId":null,
   "persistent":false,

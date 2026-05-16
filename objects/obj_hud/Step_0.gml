@@ -1,4 +1,3 @@
-
 // =====================
 // RESET
 // =====================
@@ -57,4 +56,26 @@ if (alerta != alerta_anterior)
 {
     shake_alerta    = 10;
     alerta_anterior = alerta;
+}
+
+// =====================
+// SYNC SCORE E TEMPO
+// =====================
+
+if (instance_exists(obj_game))
+{
+    tempo_segundos = floor(obj_game.game_time);
+	hud_score      = obj_game.player_score;
+}
+
+// =====================
+// GAME OVER
+// =====================
+
+if (energia <= 0 || oxigenio <= 0 || integridade <= 0)
+{
+    if (instance_exists(obj_game) && obj_game.game_state != GAME_STATE.GAMEOVER)
+    {
+        obj_game.game_state = GAME_STATE.GAMEOVER;
+    }
 }

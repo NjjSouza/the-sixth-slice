@@ -2,6 +2,7 @@
 // CHECAR SE DEVE ATIVAR
 // =====================
 
+if (!instance_exists(obj_hud)) exit;
 var hud = obj_hud;
 
 if (hud.energia <= 30 || hud.oxigenio <= 30 || hud.integridade <= 30)

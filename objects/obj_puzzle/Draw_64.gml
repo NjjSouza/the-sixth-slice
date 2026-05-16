@@ -1,0 +1,1 @@
+scr_puzzle_draw();

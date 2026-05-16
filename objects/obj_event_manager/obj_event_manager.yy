@@ -9,8 +9,8 @@
   "name":"obj_event_manager",
   "overriddenProperties":[],
   "parent":{
-    "name":"TheSixthSlice",
-    "path":"TheSixthSlice.yyp",
+    "name":"Objetos",
+    "path":"folders/Objetos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
