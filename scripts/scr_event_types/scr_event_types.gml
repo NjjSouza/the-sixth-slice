@@ -1,0 +1,7 @@
+enum EVENT_TYPE
+{
+    NONE,
+    SYSTEM_CHECK,
+    ALIEN_SIGNAL,
+    OXYGEN_LEAK
+}
