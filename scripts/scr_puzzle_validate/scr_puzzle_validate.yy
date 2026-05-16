@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_puzzle_validate",
   "parent":{
-    "name":"TheSixthSlice",
-    "path":"TheSixthSlice.yyp",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

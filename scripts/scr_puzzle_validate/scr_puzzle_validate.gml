@@ -9,15 +9,13 @@ function scr_puzzle_validate() {
     if (diferenca <= 0.01) {
 
         global.puzzle_resultado = "correto";
-        global.score += 100;
+        obj_game.player_score += 100;
         global.puzzle_contador_na_fase += 1;
 
         if (global.puzzle_contador_na_fase >= 6) {
             global.puzzle_fase += 1;
             global.puzzle_contador_na_fase = 0;
 
-            // Trava na fase 4 (alienígena) — depois de completar tudo
-            // continua gerando funções f(x) infinitamente até a nave morrer
             if (global.puzzle_fase > 4) {
                 global.puzzle_fase = 4;
             }
@@ -29,15 +27,11 @@ function scr_puzzle_validate() {
     } else {
 
         global.puzzle_resultado = "errado";
-        global.energia  -= 15;
-        global.oxigenio -= 10;
+        obj_hud.energia  -= 15;
+        obj_hud.oxigenio -= 10;
 
-        if (global.energia  < 0) { global.energia  = 0; }
-        if (global.oxigenio < 0) { global.oxigenio = 0; }
-
-        if (global.energia <= 0 or global.oxigenio <= 0) {
-            global.game_over = true;
-        }
+        obj_hud.energia  = max(obj_hud.energia,  0);
+        obj_hud.oxigenio = max(obj_hud.oxigenio, 0);
     }
 
     // ============================================================

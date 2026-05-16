@@ -1,11 +1,11 @@
-draw_text(20,20,
+draw_text(20, 20,
 "TIME: " + string(floor(obj_game.game_time)));
 
-draw_text(20,50,
+draw_text(20, 50,
 "SCORE: " + string(obj_game.player_score));
 
-draw_text(20,80,
-"OXYGEN: " + string(floor(obj_rocket_status.oxygen)));
+draw_text(20, 80,
+"OXYGEN: " + string(floor(obj_hud.oxigenio)));
 
 var state_name = "";
 
@@ -28,11 +28,5 @@ switch(obj_game.game_state)
     break;
 }
 
-draw_text(20,110,
+draw_text(20, 110,
 "STATE: " + state_name);
-
-if (obj_game.game_state == GAME_STATE.GAMEOVER)
-{
-    draw_text(300,200,"GAME OVER");
-    draw_text(300,240,"APERTE R PARA REINICIAR");
-}

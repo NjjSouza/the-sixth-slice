@@ -1,5 +1,4 @@
 
-
 // =====================
 // HUD BASE (alpha leve opcional)
 // =====================
@@ -72,17 +71,27 @@ draw_rectangle(300,660,980,695,true);
 
 
 // =====================
+// SCORE E TEMPO
+// =====================
+
+var mins     = floor(obj_game.game_time / 60);
+var secs     = floor(obj_game.game_time mod 60);
+var time_str = string(mins) + ":" + (secs < 10 ? "0" : "") + string(secs);
+
+draw_set_color(c_white);
+draw_text(1000, 40, "SCORE: " + string(obj_game.player_score));
+draw_text(1000, 75, "TEMPO: " + time_str);
+
+
+// =====================
 // TEXTOS BASE
 // =====================
 
 draw_set_color(c_white);
 
-draw_text(40,30,"ENERGIA: " + string(energia) + "%");
-draw_text(40,75,"OXIGENIO: " + string(oxigenio) + "%");
-draw_text(40,120,"INTEGRIDADE: " + string(integridade) + "%");
-
-draw_text(1000,40,"SCORE: 0");
-draw_text(1000,75,"TEMPO: 00:00");
+draw_text(40,30,"ENERGIA: " + string(floor(energia)) + "%");
+draw_text(40,75,"OXIGENIO: " + string(floor(oxigenio)) + "%");
+draw_text(40,120,"INTEGRIDADE: " + string(floor(integridade)) + "%");
 
 
 // =====================
@@ -113,7 +122,7 @@ draw_text(320 + shake_x, 668 + shake_y, "ALERTA: " + alerta);
 if (alerta != "SISTEMAS ESTAVEIS")
 {
     draw_set_color(c_white);
-    draw_text(280 + shake_x, 667 + shake_y, "⚠");
+    draw_text(280 + shake_x, 667 + shake_y, "!");
 }
 
 

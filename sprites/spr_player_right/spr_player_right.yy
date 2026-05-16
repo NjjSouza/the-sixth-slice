@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"TheSixthSlice",
-    "path":"TheSixthSlice.yyp",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
