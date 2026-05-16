@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_random_range_int",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_random_range_int",
+  "parent":{
+    "name":"TheSixthSlice",
+    "path":"TheSixthSlice.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

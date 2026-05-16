@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_puzzle_init",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_puzzle_init",
+  "parent":{
+    "name":"TheSixthSlice",
+    "path":"TheSixthSlice.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
