@@ -1,5 +1,4 @@
 
-
 // =====================
 // FUNDO BASE
 // =====================
@@ -9,7 +8,47 @@ draw_rectangle(0,0,room_width,room_height,false);
 
 
 // =====================
-// ESTÁTICA (NOISE)
+// BOOT MODE
+// =====================
+
+if (booting)
+{
+    var start_y = room_height/2 - 80;
+    var g = irandom_range(-2, 2);
+
+    for (var i = 0; i < boot_index; i++)
+    {
+        var txt = boot_texts[i];
+
+        // última linha = verde destaque
+        if (i == array_length(boot_texts) - 1)
+        {
+            draw_set_color(make_color_rgb(80,255,120));
+        }
+        else
+        {
+            draw_set_color(make_color_rgb(180,220,255));
+        }
+
+        draw_text(
+            room_width/2 - string_width(txt)/2 + g,
+            start_y + i * 22,
+            txt
+        );
+    }
+
+    // overlay escuro leve
+    draw_set_alpha(0.4);
+    draw_set_color(c_black);
+    draw_rectangle(0,0,room_width,room_height,false);
+    draw_set_alpha(1);
+
+    exit;
+}
+
+
+// =====================
+// ESTÁTICA
 // =====================
 
 draw_set_alpha(0.05);
@@ -24,7 +63,7 @@ draw_set_alpha(1);
 
 
 // =====================
-// PULSO DE FUNDO
+// PULSO
 // =====================
 
 var pulse = 0.5 + 0.5 * sin(current_time / 300);
@@ -50,7 +89,7 @@ draw_set_alpha(1);
 
 
 // =====================
-// STATUS DO SISTEMA
+// STATUS
 // =====================
 
 draw_set_color(make_color_rgb(80,180,220));
@@ -61,10 +100,10 @@ draw_text(20, 40, "NAVE: INSTAVEL");
 
 
 // =====================
-// TÍTULO COM GLITCH (CORRIGIDO)
+// TÍTULO
 // =====================
 
-var texto = "NAVE EM COLAPSO";
+var titulo = "NAVE EM COLAPSO";
 
 var gx = 0;
 var gy = 0;
@@ -75,37 +114,35 @@ if (glitch_timer > 0)
     gy = irandom_range(-2, 2);
 }
 
-// centralização correta (SEM usar x/y reservados)
-var titulo_x = room_width/2 - string_width(texto)/2;
-var titulo_y = 180;
+var titulo_x = room_width/2 - string_width(titulo)/2;
+var titulo_y = 140;
 
-
-// camada glitch (vermelha)
 draw_set_color(c_red);
-draw_text(titulo_x + gx + 2, titulo_y + gy, texto);
+draw_text(titulo_x + gx + 2, titulo_y + gy, titulo);
 
-// camada principal
 draw_set_color(c_white);
-draw_text(titulo_x + gx, titulo_y + gy, texto);
-
-// glitch fantasma leve
-if (glitch_timer > 0 && irandom(10) < 2)
-{
-    draw_text(titulo_x + irandom_range(-6,6), titulo_y, texto);
-}
+draw_text(titulo_x + gx, titulo_y + gy, titulo);
 
 
 // =====================
-// INSTRUÇÃO
+// INSTRUÇÕES
 // =====================
 
 draw_set_color(make_color_rgb(180,220,255));
-draw_text(room_width/2 - 170, 320, "[ ENTER ] INICIAR SEQUÊNCIA DE EMERGÊNCIA");
+draw_text(
+    room_width/2 - string_width("[ ENTER ] INICIAR   |   [ ESC ] SAIR")/2,
+    320,
+    "[ ENTER ] INICIAR   |   [ ESC ] SAIR"
+);
 
 
 // =====================
-// INDICADOR FINAL
+// STATUS FINAL
 // =====================
 
 draw_set_color(make_color_rgb(255,210,80));
-draw_text(room_width/2 - 90, 360, ">> SISTEMA AGUARDANDO <<");
+draw_text(
+    room_width/2 - string_width(">> SISTEMA AGUARDANDO <<")/2,
+    360,
+    ">> SISTEMA AGUARDANDO <<"
+);
