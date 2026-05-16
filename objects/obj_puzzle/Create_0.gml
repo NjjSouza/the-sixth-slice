@@ -1,5 +1,5 @@
-// Inicializa todo o sistema quando o objeto é criado
+// SEMPRE init primeiro — ela cria todas as variáveis globais
 scr_puzzle_init();
 
-// Gera o primeiro puzzle imediatamente
+// Só depois chama o generate — agora as variáveis já existem
 scr_puzzle_generate();
