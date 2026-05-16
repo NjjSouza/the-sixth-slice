@@ -58,3 +58,10 @@ if (alerta != alerta_anterior)
     shake_alerta    = 10;
     alerta_anterior = alerta;
 }
+
+
+// TESTE - aperta G pra ir pro game over
+if (keyboard_check_pressed(ord("G")))
+{
+    room_goto(rm_gameover);
+}
