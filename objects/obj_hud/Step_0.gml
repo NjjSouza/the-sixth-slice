@@ -59,12 +59,3 @@ if (alerta != alerta_anterior)
 
 
 
-// =====================
-// SIMULAÇÃO (DEBUG HUD)
-// =====================
-
-energia -= 0.05;
-oxigenio -= 0.03;
-
-if (energia < 0) energia = 100;
-if (oxigenio < 0) oxigenio = 100;
