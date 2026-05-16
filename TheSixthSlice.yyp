@@ -25,6 +25,8 @@
     {"id":{"name":"obj_difficulty","path":"objects/obj_difficulty/obj_difficulty.yy",},},
     {"id":{"name":"obj_event_manager","path":"objects/obj_event_manager/obj_event_manager.yy",},},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},},
+    {"id":{"name":"obj_alerta","path":"objects/obj_alerta/obj_alerta.yy",},},
+    {"id":{"name":"obj_fundo","path":"objects/obj_fundo/obj_fundo.yy",},},
     {"id":{"name":"obj_gameover","path":"objects/obj_gameover/obj_gameover.yy",},},
     {"id":{"name":"obj_hud","path":"objects/obj_hud/obj_hud.yy",},},
     {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},},
