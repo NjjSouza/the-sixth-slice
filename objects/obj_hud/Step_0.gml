@@ -1,4 +1,20 @@
 // =====================
+// DECAY DAS BARRAS (só durante PLAYING)
+// =====================
+
+if (instance_exists(obj_game) && obj_game.game_state == GAME_STATE.PLAYING)
+{
+    energia     -= 2.5 * (delta_time / 1000000);
+    oxigenio    -= 2.0 * (delta_time / 1000000);
+    integridade -= 1.5 * (delta_time / 1000000);
+
+    energia     = max(energia,     0);
+    oxigenio    = max(oxigenio,    0);
+    integridade = max(integridade, 0);
+}
+
+
+// =====================
 // RESET
 // =====================
 
@@ -29,10 +45,6 @@ else if (sistemas_criticos >= 2)
 }
 else
 {
-    // =====================
-    // ALERTAS INDIVIDUAIS
-    // =====================
-
     if (energia <= 30)
     {
         alerta = "ENERGIA CRITICA";
@@ -58,6 +70,7 @@ if (alerta != alerta_anterior)
     alerta_anterior = alerta;
 }
 
+
 // =====================
 // SYNC SCORE E TEMPO
 // =====================
@@ -65,17 +78,22 @@ if (alerta != alerta_anterior)
 if (instance_exists(obj_game))
 {
     tempo_segundos = floor(obj_game.game_time);
-	hud_score      = obj_game.player_score;
+    hud_score      = obj_game.player_score;
 }
 
+
 // =====================
-// GAME OVER
+// GAME OVER — define causa antes de trocar de estado
 // =====================
 
 if (energia <= 0 || oxigenio <= 0 || integridade <= 0)
 {
     if (instance_exists(obj_game) && obj_game.game_state != GAME_STATE.GAMEOVER)
     {
+        if      (energia <= 0)     global.causa_morte = "energia";
+        else if (oxigenio <= 0)    global.causa_morte = "oxigenio";
+        else                       global.causa_morte = "estrutura";
+
         obj_game.game_state = GAME_STATE.GAMEOVER;
     }
 }

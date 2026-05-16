@@ -4,35 +4,51 @@ if (obj_game.game_state != GAME_STATE.PLAYING)
     exit;
 }
 
-// INPUT
-hspd = keyboard_check(vk_right) - keyboard_check(vk_left);
-vspd = keyboard_check(vk_down) - keyboard_check(vk_up);
 
-// NORMALIZA DIAGONAL
-var len = point_distance(0, 0, hspd, vspd);
+// =====================
+// DESTINO COM CLIQUE DO MOUSE
+// =====================
 
-if (len > 0)
+if (mouse_check_button_pressed(mb_left))
 {
-    hspd /= len;
-    vspd /= len;
+    target_x = mouse_x;
+    target_y = mouse_y;
 }
 
-// MOVIMENTO
-x += hspd * move_speed;
-y += vspd * move_speed;
 
-// SPRITES
+// =====================
+// MOVIMENTO SUAVE TOWARD TARGET
+// =====================
+
+var dx   = target_x - x;
+var dy   = target_y - y;
+var dist = point_distance(x, y, target_x, target_y);
+
+if (dist > 4)
+{
+    hspd = (dx / dist) * move_speed;
+    vspd = (dy / dist) * move_speed;
+    x   += hspd;
+    y   += vspd;
+}
+else
+{
+    hspd = 0;
+    vspd = 0;
+}
+
+
+// =====================
+// SPRITES POR DIREÇÃO
+// =====================
+
 if (abs(hspd) > abs(vspd))
 {
-    if (hspd > 0)
-        sprite_index = spr_player_right;
-    else if (hspd < 0)
-        sprite_index = spr_player_left;
+    if (hspd > 0) sprite_index = spr_player_right;
+    else           sprite_index = spr_player_left;
 }
-else if (abs(vspd) > 0)
+else if (vspd != 0)
 {
-    if (vspd > 0)
-        sprite_index = spr_player_down;
-    else if (vspd < 0)
-        sprite_index = spr_player_up;
+    if (vspd > 0) sprite_index = spr_player_down;
+    else           sprite_index = spr_player_up;
 }
