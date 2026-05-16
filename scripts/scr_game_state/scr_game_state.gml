@@ -1,0 +1,7 @@
+enum GAME_STATE
+{
+    MENU,
+    PLAYING,
+    PUZZLE,
+    GAMEOVER
+}
