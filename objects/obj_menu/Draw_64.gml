@@ -20,7 +20,6 @@ if (booting)
     {
         var txt = boot_texts[i];
 
-        // última linha = verde destaque
         if (i == array_length(boot_texts) - 1)
         {
             draw_set_color(make_color_rgb(80,255,120));
@@ -34,6 +33,17 @@ if (booting)
             room_width/2 - string_width(txt)/2 + g,
             start_y + i * 22,
             txt
+        );
+    }
+
+    // CURSOR PISCANTE
+    if (cursor_visivel && boot_index < array_length(boot_texts))
+    {
+        draw_set_color(make_color_rgb(80,255,120));
+        draw_text(
+            room_width/2 - string_width("_")/2,
+            start_y + boot_index * 22,
+            "_"
         );
     }
 
@@ -146,3 +156,11 @@ draw_text(
     360,
     ">> SISTEMA AGUARDANDO <<"
 );
+
+
+// =====================
+// RESET FINAL
+// =====================
+
+draw_set_alpha(1);
+draw_set_color(c_white);

@@ -1,11 +1,17 @@
 
-// glitch leve
+// =====================
+// GLITCH
+// =====================
+
 glitch_timer = 0;
 
-// boot system
+
+// =====================
+// BOOT SYSTEM
+// =====================
+
 booting = false;
 
-// terminal boot
 boot_texts = [
     "INICIANDO SISTEMA DA NAVE...",
     "VERIFICANDO ENERGIA...",
@@ -16,6 +22,14 @@ boot_texts = [
     "TODOS SISTEMAS ONLINE"
 ];
 
-boot_index = 0;
+boot_index   = 0;
 boot_counter = 0;
-boot_delay = 30;
+boot_delay   = 30;
+
+
+// =====================
+// CURSOR PISCANTE
+// =====================
+
+cursor_timer   = 0;
+cursor_visivel = true;

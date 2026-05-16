@@ -2,6 +2,7 @@
 // =====================
 // RESET
 // =====================
+
 alerta = "SISTEMAS ESTAVEIS";
 var sistemas_criticos = 0;
 
@@ -10,8 +11,8 @@ var sistemas_criticos = 0;
 // CHECAGEM DE CRÍTICOS
 // =====================
 
-if (energia <= 15) sistemas_criticos += 1;
-if (oxigenio <= 15) sistemas_criticos += 1;
+if (energia     <= 15) sistemas_criticos += 1;
+if (oxigenio    <= 15) sistemas_criticos += 1;
 if (integridade <= 15) sistemas_criticos += 1;
 
 
@@ -47,18 +48,13 @@ else
     }
 }
 
+
 // =====================
 // DETECTAR MUDANÇA DE ALERTA
 // =====================
 
 if (alerta != alerta_anterior)
 {
-    shake_alerta = 10; // duração do tremor
+    shake_alerta    = 10;
     alerta_anterior = alerta;
 }
-
-
-
-
-
-

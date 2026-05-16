@@ -11,6 +11,18 @@ draw_set_alpha(1);
 // FUNDO DAS CAIXAS
 // =====================
 
+
+// =====================
+// HUD BASE
+// =====================
+
+draw_set_alpha(1);
+
+
+// =====================
+// FUNDO DAS CAIXAS
+// =====================
+
 draw_set_color(make_color_rgb(15,20,30));
 
 draw_rectangle(20,20,260,190,false);
@@ -77,12 +89,21 @@ draw_rectangle(300,660,980,695,true);
 
 draw_set_color(c_white);
 
-draw_text(40,30,"ENERGIA: " + string(energia) + "%");
-draw_text(40,75,"OXIGENIO: " + string(oxigenio) + "%");
+draw_text(40,30,"ENERGIA: "      + string(energia)     + "%");
+draw_text(40,75,"OXIGENIO: "     + string(oxigenio)    + "%");
 draw_text(40,120,"INTEGRIDADE: " + string(integridade) + "%");
 
-draw_text(1000,40,"SCORE: 0");
-draw_text(1000,75,"TEMPO: 00:00");
+
+// =====================
+// SCORE E TEMPO DINÂMICOS
+// =====================
+
+var minutos  = tempo_segundos div 60;
+var segundos = tempo_segundos mod 60;
+var seg_str  = (segundos < 10 ? "0" : "") + string(segundos);
+
+draw_text(1000, 40, "SCORE: " + string(score));
+draw_text(1000, 75, "TEMPO: " + string(minutos) + ":" + seg_str);
 
 
 // =====================
@@ -99,28 +120,22 @@ if (shake_alerta > 0)
     shake_alerta -= 1;
 }
 
-
-// sombra (melhora leitura)
 draw_set_color(c_black);
 draw_text(322 + shake_x, 670 + shake_y, "ALERTA: " + alerta);
 
-// texto principal
 draw_set_color(c_white);
 draw_text(320 + shake_x, 668 + shake_y, "ALERTA: " + alerta);
 
-
-// ícone de alerta
 if (alerta != "SISTEMAS ESTAVEIS")
 {
     draw_set_color(c_white);
-    draw_text(280 + shake_x, 667 + shake_y, "⚠");
+    draw_text(280 + shake_x, 667 + shake_y, "!");
 }
 
 
 // =====================
 // BARRAS DE STATUS
 // =====================
-
 
 // ENERGIA
 draw_set_color(c_white);
@@ -142,7 +157,7 @@ else
     draw_set_color(c_red);
 }
 
-draw_rectangle(40,50,40 + ((180 * energia) / 100),62,false);
+draw_rectangle(40,50, 40 + ((180 * energia) / 100), 62, false);
 
 
 // OXIGENIO
@@ -165,7 +180,7 @@ else
     draw_set_color(make_color_rgb(180,80,255));
 }
 
-draw_rectangle(40,95,40 + ((180 * oxigenio) / 100),107,false);
+draw_rectangle(40,95, 40 + ((180 * oxigenio) / 100), 107, false);
 
 
 // INTEGRIDADE
@@ -188,7 +203,7 @@ else
     draw_set_color(make_color_rgb(180,40,40));
 }
 
-draw_rectangle(40,140,40 + ((180 * integridade) / 100),152,false);
+draw_rectangle(40,140, 40 + ((180 * integridade) / 100), 152, false);
 
 
 // =====================
