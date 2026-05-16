@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_trigger_event",
+  "%Name":"scr_puzzle_flow",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_trigger_event",
+  "name":"scr_puzzle_flow",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",
