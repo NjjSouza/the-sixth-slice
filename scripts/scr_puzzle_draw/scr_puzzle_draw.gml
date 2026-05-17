@@ -25,7 +25,7 @@ function scr_puzzle_draw() {
         draw_text(cx, cy * 0.60, nome_fase);
 
         draw_set_color(c_white);
-        draw_text(cx, cy * 0.72, "Puzzle " + string(global.puzzle_contador_na_fase + 1) + " de 6");
+        draw_text(cx, cy * 0.72, "Pergunta " + string(4 - global.puzzle_restantes) + " de 3");
 
         draw_set_color(c_yellow);
         if (global.puzzle_alieniga) {
@@ -37,6 +37,8 @@ function scr_puzzle_draw() {
 
         draw_set_color(c_white);
         draw_text(cx, cy * 1.16, global.puzzle_resposta_jogador + "_");
+		draw_set_color(make_color_rgb(120,120,120));
+		draw_text(cx, cy * 1.28, "[ESC] sair do monitor");
     }
 
     if (global.puzzle_feedback_timer > 0) {
