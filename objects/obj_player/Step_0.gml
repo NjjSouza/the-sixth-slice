@@ -11,8 +11,11 @@ if (obj_game.game_state != GAME_STATE.PLAYING)
 
 if (mouse_check_button_pressed(mb_left))
 {
-    target_x = mouse_x;
-    target_y = mouse_y;
+    if (position_meeting(mouse_x, mouse_y, obj_chao))
+    {
+        target_x = mouse_x;
+        target_y = mouse_y;
+    }
 }
 
 
@@ -26,10 +29,21 @@ var dist = point_distance(x, y, target_x, target_y);
 
 if (dist > 4)
 {
-    hspd = (dx / dist) * move_speed;
-    vspd = (dy / dist) * move_speed;
-    x   += hspd;
-    y   += vspd;
+    var novo_x = x + (dx / dist) * move_speed;
+    var novo_y = y + (dy / dist) * move_speed;
+
+    if (position_meeting(novo_x, novo_y, obj_chao))
+    {
+        x    = novo_x;
+        y    = novo_y;
+        hspd = (dx / dist) * move_speed;
+        vspd = (dy / dist) * move_speed;
+    }
+    else
+    {
+        hspd = 0;
+        vspd = 0;
+    }
 }
 else
 {

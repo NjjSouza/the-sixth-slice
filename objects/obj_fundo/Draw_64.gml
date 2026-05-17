@@ -10,6 +10,7 @@ draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 // NEBULOSA
 // =====================
 
+
 for (var i = 0; i < neb_qtd; i++)
 {
     var passos = 6;
@@ -31,6 +32,7 @@ draw_set_alpha(1);
 // =====================
 // ESTRELAS
 // =====================
+
 
 for (var i = 0; i < estrelas_qtd; i++)
 {
