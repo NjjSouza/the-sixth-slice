@@ -70,7 +70,6 @@ if (player_perto)
     draw_set_halign(fa_left);
 }
 
-
 // =====================
 // RESET
 // =====================

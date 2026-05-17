@@ -5,9 +5,6 @@ if (obj_game.game_state != GAME_STATE.PLAYING) exit;
 var tile_layer = layer_get_id("tile_layer");
 var mapa       = layer_tilemap_get_id(tile_layer);
 
-show_debug_message("tile: " + string(tilemap_get_at_pixel(mapa, x, y)));
-show_debug_message("x: " + string(x) + " y: " + string(y));
-
 var dx = 0;
 var dy = 0;
 
@@ -32,3 +29,5 @@ if (dx != 0 || dy != 0)
     else
         sprite_index = (dy > 0) ? spr_player_down : spr_player_up;
 }
+
+global.tecla_e_pressionada = keyboard_check_pressed(ord("E"));

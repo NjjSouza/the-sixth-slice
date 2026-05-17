@@ -22,7 +22,7 @@ pulso = (sin(current_time / 300) + 1) / 2; // 0.0 a 1.0
 // INTERAÇÃO
 // =====================
 
-if (player_perto && keyboard_check_pressed(ord("E")))
+if (player_perto && global.tecla_e_pressionada)
 {
     if (obj_game.game_state == GAME_STATE.PLAYING)
     {

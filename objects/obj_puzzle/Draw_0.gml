@@ -1,1 +1,0 @@
-// vazio - draw movido para GUI
