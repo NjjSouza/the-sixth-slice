@@ -1,18 +1,11 @@
-
-// =====================
-// FUNDO BASE
-// =====================
-
-draw_set_color(make_color_rgb(10,15,25));
-draw_rectangle(0,0,room_width,room_height,false);
-
-
-// =====================
-// BOOT MODE
-// =====================
-
 if (booting)
 {
+    // overlay PRIMEIRO — fundo escuro antes de qualquer texto
+    draw_set_alpha(0.75);
+    draw_set_color(c_black);
+    draw_rectangle(0, 0, room_width, room_height, false);
+    draw_set_alpha(1);
+
     var start_y = room_height/2 - 80;
     var g = irandom_range(-2, 2);
 
@@ -21,14 +14,11 @@ if (booting)
         var txt = boot_texts[i];
 
         if (i == array_length(boot_texts) - 1)
-        {
-            draw_set_color(make_color_rgb(80,255,120));
-        }
+            draw_set_color(make_color_rgb(80, 255, 120));
         else
-        {
-            draw_set_color(make_color_rgb(180,220,255));
-        }
+            draw_set_color(c_white);
 
+        draw_set_alpha(1);
         draw_text(
             room_width/2 - string_width(txt)/2 + g,
             start_y + i * 22,
@@ -39,7 +29,8 @@ if (booting)
     // CURSOR PISCANTE
     if (cursor_visivel && boot_index < array_length(boot_texts))
     {
-        draw_set_color(make_color_rgb(80,255,120));
+        draw_set_color(make_color_rgb(80, 255, 120));
+        draw_set_alpha(1);
         draw_text(
             room_width/2 - string_width("_")/2,
             start_y + boot_index * 22,
@@ -47,12 +38,8 @@ if (booting)
         );
     }
 
-    // overlay escuro leve
-    draw_set_alpha(0.4);
-    draw_set_color(c_black);
-    draw_rectangle(0,0,room_width,room_height,false);
     draw_set_alpha(1);
-
+    draw_set_color(c_white);
     exit;
 }
 
@@ -84,7 +71,6 @@ draw_rectangle(0,0,room_width,room_height,false);
 
 draw_set_alpha(1);
 
-
 // =====================
 // SCANLINE
 // =====================
@@ -97,65 +83,35 @@ draw_rectangle(0, y_scan, room_width, y_scan + 2, false);
 
 draw_set_alpha(1);
 
-
 // =====================
-// STATUS
-// =====================
-
-draw_set_color(make_color_rgb(80,180,220));
-draw_text(20, 20, "SISTEMA: INATIVO");
-
-draw_set_color(make_color_rgb(255,80,80));
-draw_text(20, 40, "NAVE: INSTAVEL");
-
-
-// =====================
-// TÍTULO
+// BOTÕES DO MENU
 // =====================
 
-var titulo = "NAVE EM COLAPSO";
+var btn_x     = 250;  // posição à esquerda
+var btn_scale = 1.8;  // tamanho maior (ajuste ao gosto)
 
-var gx = 0;
-var gy = 0;
+// [ ENTER ] INICIAR — amarelo
+var txt_iniciar = "[ ENTER ]  INICIAR";
 
-if (glitch_timer > 0)
-{
-    gx = irandom_range(-3, 3);
-    gy = irandom_range(-2, 2);
-}
+// sombra
+draw_set_color(make_color_rgb(255, 0, 255));
+draw_text_transformed(btn_x + 3, 350, txt_iniciar, btn_scale, btn_scale, 0);
 
-var titulo_x = room_width/2 - string_width(titulo)/2;
-var titulo_y = 140;
-
-draw_set_color(c_red);
-draw_text(titulo_x + gx + 2, titulo_y + gy, titulo);
-
+// principal
 draw_set_color(c_white);
-draw_text(titulo_x + gx, titulo_y + gy, titulo);
+draw_text_transformed(btn_x, 350, txt_iniciar, btn_scale, btn_scale, 0);
 
 
-// =====================
-// INSTRUÇÕES
-// =====================
+// [ CTRL+ALT+C ] CRÉDITOS — rosa
+var txt_credits = "[ CTRL + ALT]  CREDITOS";
 
-draw_set_color(make_color_rgb(180,220,255));
-draw_text(
-    room_width/2 - string_width("[ ENTER ] INICIAR   |   [ ESC ] SAIR")/2,
-    320,
-    "[ ENTER ] INICIAR   |   [ ESC ] SAIR"
-);
+// sombra
+draw_set_color(make_color_rgb(255, 0, 255));
+draw_text_transformed(btn_x + 3, 400, txt_credits, btn_scale, btn_scale, 0);
 
-
-// =====================
-// STATUS FINAL
-// =====================
-
-draw_set_color(make_color_rgb(255,210,80));
-draw_text(
-    room_width/2 - string_width(">> SISTEMA AGUARDANDO <<")/2,
-    360,
-    ">> SISTEMA AGUARDANDO <<"
-);
+// principal
+draw_set_color(c_white);
+draw_text_transformed(btn_x, 400, txt_credits, btn_scale, btn_scale, 0);
 
 
 // =====================
@@ -164,3 +120,5 @@ draw_text(
 
 draw_set_alpha(1);
 draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);

@@ -33,7 +33,7 @@ boot_texts = [
 
 boot_index   = 0;
 boot_counter = 0;
-boot_delay   = 30;
+boot_delay   = 80;
 
 
 // =====================

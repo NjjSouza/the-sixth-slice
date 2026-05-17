@@ -1,3 +1,6 @@
+if (keyboard_check(vk_control) && keyboard_check(vk_alt)) {
+    room_goto(rm_credits);
+}
 
 // =====================
 // GLITCH LEVE
@@ -54,7 +57,6 @@ if (booting)
     {
         boot_counter = 0;
 
-        // CORRIGIDO: checa >= antes de incrementar
         if (boot_index >= array_length(boot_texts))
         {
             room_goto(rm_game);

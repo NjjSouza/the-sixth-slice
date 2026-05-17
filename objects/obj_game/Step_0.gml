@@ -1,3 +1,7 @@
+if (keyboard_check_pressed(ord("C"))) {
+    room_goto(rm_credits);
+}
+
 // GAMEPLAY
 game_time   += delta_time / 1000000;
 score_timer += delta_time / 1000000;
