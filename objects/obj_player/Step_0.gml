@@ -1,68 +1,34 @@
-// trava durante puzzle
-if (obj_game.game_state != GAME_STATE.PLAYING)
+depth = 15;
+
+if (obj_game.game_state != GAME_STATE.PLAYING) exit;
+
+var tile_layer = layer_get_id("tile_layer");
+var mapa       = layer_tilemap_get_id(tile_layer);
+
+show_debug_message("tile: " + string(tilemap_get_at_pixel(mapa, x, y)));
+show_debug_message("x: " + string(x) + " y: " + string(y));
+
+var dx = 0;
+var dy = 0;
+
+if (keyboard_check(ord("A"))) dx = -1;
+if (keyboard_check(ord("D"))) dx =  1;
+if (keyboard_check(ord("W"))) dy = -1;
+if (keyboard_check(ord("S"))) dy =  1;
+
+if (dx != 0 || dy != 0)
 {
-    exit;
-}
+    var novo_x = x + dx * move_speed;
+    var novo_y = y + dy * move_speed;
 
-
-// =====================
-// DESTINO COM CLIQUE DO MOUSE
-// =====================
-
-if (mouse_check_button_pressed(mb_left))
-{
-    if (position_meeting(mouse_x, mouse_y, obj_chao))
+    if (tilemap_get_at_pixel(mapa, novo_x, novo_y) == 0)
     {
-        target_x = mouse_x;
-        target_y = mouse_y;
+        x = novo_x;
+        y = novo_y;
     }
-}
 
-
-// =====================
-// MOVIMENTO SUAVE TOWARD TARGET
-// =====================
-
-var dx   = target_x - x;
-var dy   = target_y - y;
-var dist = point_distance(x, y, target_x, target_y);
-
-if (dist > 4)
-{
-    var novo_x = x + (dx / dist) * move_speed;
-    var novo_y = y + (dy / dist) * move_speed;
-
-    if (position_meeting(novo_x, novo_y, obj_chao))
-    {
-        x    = novo_x;
-        y    = novo_y;
-        hspd = (dx / dist) * move_speed;
-        vspd = (dy / dist) * move_speed;
-    }
+    if (abs(dx) >= abs(dy))
+        sprite_index = (dx > 0) ? spr_player_right : spr_player_left;
     else
-    {
-        hspd = 0;
-        vspd = 0;
-    }
-}
-else
-{
-    hspd = 0;
-    vspd = 0;
-}
-
-
-// =====================
-// SPRITES POR DIREÇÃO
-// =====================
-
-if (abs(hspd) > abs(vspd))
-{
-    if (hspd > 0) sprite_index = spr_player_right;
-    else           sprite_index = spr_player_left;
-}
-else if (vspd != 0)
-{
-    if (vspd > 0) sprite_index = spr_player_down;
-    else           sprite_index = spr_player_up;
+        sprite_index = (dy > 0) ? spr_player_down : spr_player_up;
 }

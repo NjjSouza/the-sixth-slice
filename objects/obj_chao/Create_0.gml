@@ -1,1 +1,0 @@
-depth = 150; // entre obj_nave (200) e obj_fundo (100)
