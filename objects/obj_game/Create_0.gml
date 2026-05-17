@@ -1,4 +1,6 @@
-// obj_game/Create_0.gml
+// Música
+AudioManager_Play(snd_main);
+
 game_state = GAME_STATE.PLAYING;
 game_time = 0;
 player_score = 0;

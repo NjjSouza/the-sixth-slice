@@ -24,6 +24,7 @@
   "name":"TheSixthSlice",
   "resources":[
     {"id":{"name":"obj_alerta","path":"objects/obj_alerta/obj_alerta.yy",},},
+    {"id":{"name":"obj_audio_manager","path":"objects/obj_audio_manager/obj_audio_manager.yy",},},
     {"id":{"name":"obj_difficulty","path":"objects/obj_difficulty/obj_difficulty.yy",},},
     {"id":{"name":"obj_event_manager","path":"objects/obj_event_manager/obj_event_manager.yy",},},
     {"id":{"name":"obj_fundo","path":"objects/obj_fundo/obj_fundo.yy",},},
@@ -41,6 +42,7 @@
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
     {"id":{"name":"rm_gameover","path":"rooms/rm_gameover/rm_gameover.yy",},},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
+    {"id":{"name":"scr_audio_manager","path":"scripts/scr_audio_manager/scr_audio_manager.yy",},},
     {"id":{"name":"scr_event_types","path":"scripts/scr_event_types/scr_event_types.yy",},},
     {"id":{"name":"scr_execute_event","path":"scripts/scr_execute_event/scr_execute_event.yy",},},
     {"id":{"name":"scr_game_state","path":"scripts/scr_game_state/scr_game_state.yy",},},
