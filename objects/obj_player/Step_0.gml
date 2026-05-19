@@ -8,10 +8,10 @@ var mapa       = layer_tilemap_get_id(tile_layer);
 var dx = 0;
 var dy = 0;
 
-if (keyboard_check(ord("A"))) dx = -1;
-if (keyboard_check(ord("D"))) dx =  1;
-if (keyboard_check(ord("W"))) dy = -1;
-if (keyboard_check(ord("S"))) dy =  1;
+if (keyboard_check(ord("A")) || keyboard_check(vk_left))  dx = -1;
+if (keyboard_check(ord("D")) || keyboard_check(vk_right)) dx =  1;
+if (keyboard_check(ord("W")) || keyboard_check(vk_up))    dy = -1;
+if (keyboard_check(ord("S")) || keyboard_check(vk_down))  dy =  1;
 
 if (dx != 0 || dy != 0)
 {
@@ -30,4 +30,5 @@ if (dx != 0 || dy != 0)
         sprite_index = (dy > 0) ? spr_player_down : spr_player_up;
 }
 
-global.tecla_e_pressionada = keyboard_check_pressed(ord("E"));
+// trocada para CTRL
+global.tecla_e_pressionada = keyboard_check_pressed(vk_control);

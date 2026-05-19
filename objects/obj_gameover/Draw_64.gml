@@ -79,8 +79,8 @@ draw_set_alpha(1);
 // =====================
 
 var camadas    = 18;
-var cx         = 1366 / 2;
-var cy         = 768 / 2;
+var cx = display_get_gui_width() / 2;
+var cy = display_get_gui_height() / 2;
 var raio_max_x = 1366;
 var raio_max_y = 768;
 
@@ -228,17 +228,14 @@ draw_set_color(cor_principal);
 draw_text_transformed(draw_x + gx + sx, draw_y + gy + sy, titulo, scale, scale, 0);
 
 
+draw_set_halign(fa_center);
+
 // =====================
 // SUBTITULO
 // =====================
 
 draw_set_color(c_white);
-draw_text(
-    cx - string_width(subtitulo)/2 + sx,
-    260 + sy,
-    subtitulo
-);
-
+draw_text(cx + sx, 260 + sy, subtitulo);
 
 // =====================
 // SCORE E TEMPO FINAIS
@@ -248,21 +245,19 @@ var minutos  = tempo_final div 60;
 var segundos = tempo_final mod 60;
 var seg_str  = (segundos < 10 ? "0" : "") + string(segundos);
 
-draw_set_color(make_color_rgb(255,210,80));
-draw_text(room_width/2 - string_width("SCORE: " + string(score_final))/2 + sx, 310 + sy, "SCORE: " + string(score_final));
+draw_set_color(make_color_rgb(255, 210, 80));
+draw_text(cx + sx, 310 + sy, "SCORE: " + string(score_final));
 
-draw_set_color(make_color_rgb(180,220,255));
-draw_text(room_width/2 - string_width("TEMPO: " + string(minutos) + ":" + seg_str)/2 + sx, 340 + sy, "TEMPO: " + string(minutos) + ":" + seg_str);
-
+draw_set_color(make_color_rgb(180, 220, 255));
+draw_text(cx + sx, 340 + sy, "TEMPO: " + string(minutos) + ":" + seg_str);
 
 // =====================
 // INSTRUÇÃO
 // =====================
+draw_set_color(make_color_rgb(180, 220, 255));
+draw_text(cx + sx, 410 + sy, "PRESSIONE R PARA REINICIAR");
 
-var txt = "PRESSIONE R PARA REINICIAR";
-
-draw_set_color(make_color_rgb(180,220,255));
-draw_text(room_width/2 - string_width(txt)/2 + sx, 410 + sy, txt);
+draw_set_halign(fa_left);
 
 
 // =====================

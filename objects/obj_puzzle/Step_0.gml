@@ -29,10 +29,10 @@ if (global.puzzle_ativo) {
             scr_puzzle_validate();
     }
 
-    // ESC sai do monitor a qualquer momento
-    if (keyboard_check_pressed(vk_escape)) {
-        Puzzle_End();
-    }
+    // ALT sai do monitor a qualquer momento
+    if (keyboard_check_pressed(vk_alt)) {
+		Puzzle_End();
+	}
 }
 
 // -----------------------------------------------------------
